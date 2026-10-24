@@ -1,0 +1,2237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Aswin S. — Thermal Engineering</title>
+
+<meta name="description"
+      content="Aswin S. — Thermal Engineering, heat transfer, CFD, microchannel flow boiling and computational research.">
+
+<!-- =========================================================
+     FONTS
+========================================================= -->
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Baskerville:wght@400;700&display=swap"
+      rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    --paper: #f8f8f6;
+
+    --white: #ffffff;
+
+    --black: #111111;
+
+    --dark-grey: #303030;
+
+    --grey: #6f6f6b;
+
+    --light-grey: #d9d9d5;
+
+    --blue: #2855a6;
+
+    --blue-light: #eef3fb;
+
+    --serif: "Libre Baskerville", Georgia, serif;
+
+    --sans: "DM Sans", Arial, sans-serif;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    background: var(--paper);
+
+    color: var(--black);
+
+    font-family: var(--sans);
+
+    font-size: 15px;
+
+    line-height: 1.65;
+
+}
+
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+
+::selection {
+
+    background: var(--black);
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+
+    width: min(1180px, 90vw);
+
+    margin: auto;
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+
+    height: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--light-grey);
+
+}
+
+
+.logo {
+
+    font-family: var(--serif);
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+}
+
+
+.logo span {
+
+    color: var(--blue);
+
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    gap: 30px;
+
+}
+
+
+.nav-links a {
+
+    font-size: 13px;
+
+    color: var(--grey);
+
+    transition: color .2s ease;
+
+}
+
+
+.nav-links a:hover {
+
+    color: var(--black);
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    padding:
+
+        130px
+        0
+        150px;
+
+    border-bottom:
+
+        1px solid
+        var(--light-grey);
+
+}
+
+
+.hero-label {
+
+    font-size: 12px;
+
+    color: var(--blue);
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+
+    margin-bottom: 35px;
+
+}
+
+
+.hero h1 {
+
+    font-family: var(--serif);
+
+    font-size:
+
+        clamp(
+            48px,
+            7vw,
+            88px
+        );
+
+    font-weight: 400;
+
+    line-height: 1.08;
+
+    letter-spacing: -.035em;
+
+    max-width: 900px;
+
+}
+
+
+.hero h1 em {
+
+    font-style: normal;
+
+    color: var(--blue);
+
+}
+
+
+.hero-description {
+
+    margin-top: 45px;
+
+    max-width: 650px;
+
+    font-size: 18px;
+
+    line-height: 1.75;
+
+    color: var(--dark-grey);
+
+}
+
+
+.hero-meta {
+
+    display: flex;
+
+    gap: 60px;
+
+    margin-top: 55px;
+
+}
+
+
+.meta {
+
+    border-top:
+
+        1px solid
+        var(--black);
+
+    padding-top: 12px;
+
+    min-width: 150px;
+
+}
+
+
+.meta-label {
+
+    display: block;
+
+    font-size: 10px;
+
+    color: var(--grey);
+
+    text-transform: uppercase;
+
+    letter-spacing: .08em;
+
+}
+
+
+.meta-value {
+
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+section {
+
+    padding:
+
+        110px
+        0;
+
+    border-bottom:
+
+        1px solid
+        var(--light-grey);
+
+}
+
+
+.section-header {
+
+    display: grid;
+
+    grid-template-columns:
+
+        180px
+        1fr;
+
+    gap: 50px;
+
+}
+
+
+.section-number {
+
+    font-size: 11px;
+
+    color: var(--blue);
+
+    letter-spacing: .08em;
+
+}
+
+
+.section-title {
+
+    font-family: var(--serif);
+
+    font-size:
+
+        clamp(
+            35px,
+            5vw,
+            60px
+        );
+
+    font-weight: 400;
+
+    line-height: 1.15;
+
+    letter-spacing: -.03em;
+
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns:
+
+        1fr
+        1fr;
+
+    gap: 100px;
+
+    margin-top: 80px;
+
+}
+
+
+.about-text {
+
+    font-family: var(--serif);
+
+    font-size: 23px;
+
+    line-height: 1.6;
+
+}
+
+
+.about-text strong {
+
+    color: var(--blue);
+
+    font-weight: 400;
+
+}
+
+
+.about-details {
+
+    display: grid;
+
+    grid-template-columns:
+
+        1fr
+        1fr;
+
+    gap: 40px;
+
+}
+
+
+.detail {
+
+    border-top:
+
+        1px solid
+        var(--light-grey);
+
+    padding-top: 15px;
+
+}
+
+
+.detail-label {
+
+    font-size: 10px;
+
+    color: var(--grey);
+
+    text-transform: uppercase;
+
+    letter-spacing: .08em;
+
+}
+
+
+.detail p {
+
+    margin-top: 7px;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================================
+   WORK
+========================================================= */
+
+.work-list {
+
+    margin-top: 80px;
+
+}
+
+
+.work {
+
+    display: grid;
+
+    grid-template-columns:
+
+        80px
+        1fr
+        1fr;
+
+    gap: 40px;
+
+    padding:
+
+        35px
+        0;
+
+    border-top:
+
+        1px solid
+        var(--light-grey);
+
+    transition:
+
+        padding .25s ease;
+
+}
+
+
+.work:last-child {
+
+    border-bottom:
+
+        1px solid
+        var(--light-grey);
+
+}
+
+
+.work:hover {
+
+    padding-left: 12px;
+
+}
+
+
+.work-number {
+
+    font-size: 11px;
+
+    color: var(--blue);
+
+}
+
+
+.work-title {
+
+    font-family: var(--serif);
+
+    font-size: 28px;
+
+    line-height: 1.2;
+
+}
+
+
+.work-description {
+
+    color: var(--grey);
+
+    max-width: 430px;
+
+}
+
+
+/* =========================================================
+   RESEARCH
+========================================================= */
+
+.research-intro {
+
+    margin-top: 75px;
+
+    display: grid;
+
+    grid-template-columns:
+
+        1fr
+        1fr;
+
+    gap: 100px;
+
+}
+
+
+.research-text {
+
+    font-family: var(--serif);
+
+    font-size: 22px;
+
+    line-height: 1.65;
+
+}
+
+
+.research-text em {
+
+    color: var(--blue);
+
+    font-style: normal;
+
+}
+
+
+.research-note {
+
+    border-top:
+
+        1px solid
+        var(--black);
+
+    padding-top: 15px;
+
+    font-size: 14px;
+
+    color: var(--grey);
+
+}
+
+
+/* =========================================================
+   RESEARCH PATH
+========================================================= */
+
+.research-path {
+
+    margin-top: 80px;
+
+    border-top:
+
+        1px solid
+        var(--light-grey);
+
+}
+
+
+.path-row {
+
+    display: grid;
+
+    grid-template-columns:
+
+        80px
+        1fr
+        2fr;
+
+    padding:
+
+        28px
+        0;
+
+    border-bottom:
+
+        1px solid
+        var(--light-grey);
+
+}
+
+
+.path-number {
+
+    color: var(--blue);
+
+    font-size: 11px;
+
+}
+
+
+.path-title {
+
+    font-family: var(--serif);
+
+    font-size: 20px;
+
+}
+
+
+.path-description {
+
+    color: var(--grey);
+
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills {
+
+    margin-top: 70px;
+
+    display: grid;
+
+    grid-template-columns:
+
+        repeat(3, 1fr);
+
+}
+
+
+.skill {
+
+    padding:
+
+        25px 20px;
+
+    border-top:
+
+        1px solid
+        var(--light-grey);
+
+    border-left:
+
+        1px solid
+        var(--light-grey);
+
+    transition:
+
+        background .25s ease;
+
+}
+
+
+.skill:nth-child(3n) {
+
+    border-right:
+
+        1px solid
+        var(--light-grey);
+
+}
+
+
+.skill:nth-last-child(-n+3) {
+
+    border-bottom:
+
+        1px solid
+        var(--light-grey);
+
+}
+
+
+.skill:hover {
+
+    background:
+
+        var(--blue-light);
+
+}
+
+
+.skill-number {
+
+    font-size: 10px;
+
+    color: var(--blue);
+
+}
+
+
+.skill-name {
+
+    font-family: var(--serif);
+
+    font-size: 19px;
+
+    margin-top: 18px;
+
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline {
+
+    margin-top: 80px;
+
+}
+
+
+.timeline-row {
+
+    display: grid;
+
+    grid-template-columns:
+
+        180px
+        1fr;
+
+    padding:
+
+        35px
+        0;
+
+    border-top:
+
+        1px solid
+        var(--light-grey);
+
+}
+
+
+.timeline-row:last-child {
+
+    border-bottom:
+
+        1px solid
+        var(--light-grey);
+
+}
+
+
+.timeline-year {
+
+    font-size: 12px;
+
+    color: var(--blue);
+
+}
+
+
+.timeline-title {
+
+    font-family: var(--serif);
+
+    font-size: 25px;
+
+}
+
+
+.timeline-description {
+
+    margin-top: 10px;
+
+    color: var(--grey);
+
+    max-width: 650px;
+
+}
+
+
+/* =========================================================
+   WRITING
+========================================================= */
+
+.writing {
+
+    margin-top: 70px;
+
+}
+
+
+.writing-item {
+
+    display: grid;
+
+    grid-template-columns:
+
+        180px
+        1fr;
+
+    padding:
+
+        25px
+        0;
+
+    border-top:
+
+        1px solid
+        var(--light-grey);
+
+}
+
+
+.writing-date {
+
+    font-size: 11px;
+
+    color: var(--grey);
+
+}
+
+
+.writing-title {
+
+    font-family: var(--serif);
+
+    font-size: 21px;
+
+}
+
+
+.writing-arrow {
+
+    color: var(--blue);
+
+    margin-left: 8px;
+
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact {
+
+    padding:
+
+        150px
+        0;
+
+}
+
+
+.contact h2 {
+
+    font-family: var(--serif);
+
+    font-size:
+
+        clamp(
+            45px,
+            7vw,
+            90px
+        );
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    letter-spacing: -.04em;
+
+}
+
+
+.contact h2 em {
+
+    color: var(--blue);
+
+    font-style: normal;
+
+}
+
+
+.contact-text {
+
+    margin-top: 35px;
+
+    color: var(--grey);
+
+    max-width: 550px;
+
+}
+
+
+.contact-links {
+
+    margin-top: 35px;
+
+    display: flex;
+
+    gap: 25px;
+
+}
+
+
+.contact-links a {
+
+    font-size: 13px;
+
+    border-bottom:
+
+        1px solid
+        var(--black);
+
+    padding-bottom: 3px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    border-top:
+
+        1px solid
+        var(--light-grey);
+
+    padding:
+
+        30px
+        0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: var(--grey);
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width: 750px) {
+
+
+    .page {
+
+        width: 88vw;
+
+    }
+
+
+    nav {
+
+        height: 70px;
+
+    }
+
+
+    .nav-links {
+
+        display: none;
+
+    }
+
+
+    .hero {
+
+        padding:
+
+            90px
+            0
+            100px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 48px;
+
+    }
+
+
+    .hero-description {
+
+        font-size: 16px;
+
+    }
+
+
+    .hero-meta {
+
+        flex-direction: column;
+
+        gap: 25px;
+
+    }
+
+
+    section {
+
+        padding:
+
+            80px
+            0;
+
+    }
+
+
+    .section-header {
+
+        grid-template-columns:
+
+            1fr;
+
+        gap: 20px;
+
+    }
+
+
+    .about-grid,
+    .research-intro {
+
+        grid-template-columns:
+
+            1fr;
+
+        gap: 50px;
+
+    }
+
+
+    .about-details {
+
+        grid-template-columns:
+
+            1fr
+            1fr;
+
+    }
+
+
+    .work {
+
+        grid-template-columns:
+
+            50px
+            1fr;
+
+        gap: 20px;
+
+    }
+
+
+    .work-description {
+
+        grid-column: 2;
+
+    }
+
+
+    .path-row {
+
+        grid-template-columns:
+
+            50px
+            1fr;
+
+        gap: 15px;
+
+    }
+
+
+    .path-description {
+
+        grid-column: 2;
+
+    }
+
+
+    .skills {
+
+        grid-template-columns:
+
+            1fr
+            1fr;
+
+    }
+
+
+    .skill:nth-child(3n) {
+
+        border-right: none;
+
+    }
+
+
+    .skill:nth-child(2n) {
+
+        border-right:
+
+            1px solid
+            var(--light-grey);
+
+    }
+
+
+    .skill:nth-last-child(-n+3) {
+
+        border-bottom: none;
+
+    }
+
+
+    .skill:nth-last-child(-n+2) {
+
+        border-bottom:
+
+            1px solid
+            var(--light-grey);
+
+    }
+
+
+    .timeline-row,
+    .writing-item {
+
+        grid-template-columns:
+
+            1fr;
+
+        gap: 10px;
+
+    }
+
+
+    .contact {
+
+        padding:
+
+            100px
+            0;
+
+    }
+
+
+    footer {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav>
+
+    <a href="#" class="logo">
+
+        ASWIN<span>.</span>
+
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#work">
+            Work
+        </a>
+
+        <a href="#research">
+            Research
+        </a>
+
+        <a href="#writing">
+            Notes
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<header class="hero">
+
+    <div class="hero-label">
+
+        Thermal Engineering · CFD · Research
+
+    </div>
+
+
+    <h1>
+
+        Understanding
+        <em>heat, flow</em>
+        and the systems
+        between them.
+
+    </h1>
+
+
+    <p class="hero-description">
+
+        I work at the intersection of thermal engineering,
+        computational methods and experimental research —
+        currently exploring microchannel flow boiling and
+        the use of physics-informed machine learning for
+        engineering prediction.
+
+    </p>
+
+
+    <div class="hero-meta">
+
+
+        <div class="meta">
+
+            <span class="meta-label">
+                Currently
+            </span>
+
+            <span class="meta-value">
+                M.Tech · IIT Madras
+            </span>
+
+        </div>
+
+
+        <div class="meta">
+
+            <span class="meta-label">
+                Focus
+            </span>
+
+            <span class="meta-value">
+                Heat Transfer
+            </span>
+
+        </div>
+
+
+        <div class="meta">
+
+            <span class="meta-label">
+                Exploring
+            </span>
+
+            <span class="meta-value">
+                Scientific ML
+            </span>
+
+        </div>
+
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about">
+
+
+    <div class="section-header">
+
+        <div class="section-number">
+            01 / About
+        </div>
+
+
+        <h2 class="section-title">
+
+            The questions I
+            keep coming back to.
+
+        </h2>
+
+    </div>
+
+
+    <div class="about-grid">
+
+
+        <div class="about-text">
+
+            How does heat move?
+
+            <br>
+
+            How does a flow become unstable?
+
+            <br>
+
+            What happens when we push a
+            thermal system beyond its familiar limits?
+
+            <br><br>
+
+            I am interested in understanding these
+            questions through <strong>physics,
+            computation and experiments.</strong>
+
+        </div>
+
+
+        <div class="about-details">
+
+
+            <div class="detail">
+
+                <div class="detail-label">
+                    Education
+                </div>
+
+                <p>
+                    M.Tech Thermal Engineering<br>
+                    IIT Madras
+                </p>
+
+            </div>
+
+
+            <div class="detail">
+
+                <div class="detail-label">
+                    Background
+                </div>
+
+                <p>
+                    B.Tech Mechanical Engineering<br>
+                    CET
+                </p>
+
+            </div>
+
+
+            <div class="detail">
+
+                <div class="detail-label">
+                    Primary
+                </div>
+
+                <p>
+                    Heat Transfer<br>
+                    Fluid Mechanics<br>
+                    CFD
+                </p>
+
+            </div>
+
+
+            <div class="detail">
+
+                <div class="detail-label">
+                    Exploring
+                </div>
+
+                <p>
+                    Probability<br>
+                    Machine Learning<br>
+                    PINNs
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WORK
+===================================================== -->
+
+<section id="work">
+
+
+    <div class="section-header">
+
+        <div class="section-number">
+            02 / Work
+        </div>
+
+
+        <h2 class="section-title">
+
+            Things I have
+            built and investigated.
+
+        </h2>
+
+    </div>
+
+
+    <div class="work-list">
+
+
+        <article class="work">
+
+
+            <div class="work-number">
+                01
+            </div>
+
+
+            <h3 class="work-title">
+
+                Heat Sink
+                Optimization
+
+            </h3>
+
+
+            <p class="work-description">
+
+                CFD-driven investigation of an
+                airfoil-inspired corrugated heat sink,
+                followed by experimental evaluation and
+                additive-manufacturing considerations.
+
+            </p>
+
+
+        </article>
+
+
+        <article class="work">
+
+
+            <div class="work-number">
+                02
+            </div>
+
+
+            <h3 class="work-title">
+
+                Computational
+                Fluid Dynamics
+
+            </h3>
+
+
+            <p class="work-description">
+
+                Numerical investigation of fluid flow
+                and heat transfer using ANSYS Fluent,
+                including geometry development,
+                meshing and thermal analysis.
+
+            </p>
+
+
+        </article>
+
+
+        <article class="work">
+
+
+            <div class="work-number">
+                03
+            </div>
+
+
+            <h3 class="work-title">
+
+                Microchannel
+                Flow Boiling
+
+            </h3>
+
+
+            <p class="work-description">
+
+                Current research direction at IIT Madras,
+                combining experiments and simulation to
+                investigate microscale flow boiling,
+                heat transfer and pressure behaviour.
+
+            </p>
+
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RESEARCH
+===================================================== -->
+
+<section id="research">
+
+
+    <div class="section-header">
+
+        <div class="section-number">
+            03 / Research
+        </div>
+
+
+        <h2 class="section-title">
+
+            From physical
+            models to
+            prediction.
+
+        </h2>
+
+    </div>
+
+
+    <div class="research-intro">
+
+
+        <p class="research-text">
+
+            A system does not become predictable
+            simply because we have more data.
+
+            <br><br>
+
+            I am interested in the space where
+            <em>physical laws, probability and
+            machine learning</em> meet.
+
+        </p>
+
+
+        <div class="research-note">
+
+            CURRENT QUESTION
+
+            <br><br>
+
+            Can limited experimental data be combined
+            with governing physics to construct models
+            that predict behaviour — while also
+            understanding the uncertainty in those
+            predictions?
+
+        </div>
+
+
+    </div>
+
+
+    <div class="research-path">
+
+
+        <div class="path-row">
+
+            <div class="path-number">
+                01
+            </div>
+
+            <div class="path-title">
+                Physics
+            </div>
+
+            <div class="path-description">
+                Governing equations, conservation laws,
+                constitutive relations and boundary conditions.
+            </div>
+
+        </div>
+
+
+        <div class="path-row">
+
+            <div class="path-number">
+                02
+            </div>
+
+            <div class="path-title">
+                Experiments
+            </div>
+
+            <div class="path-description">
+                Measurements provide observations of
+                the physical system.
+            </div>
+
+        </div>
+
+
+        <div class="path-row">
+
+            <div class="path-number">
+                03
+            </div>
+
+            <div class="path-title">
+                Probability
+            </div>
+
+            <div class="path-description">
+                Quantifying uncertainty, variation and
+                the confidence associated with inference.
+            </div>
+
+        </div>
+
+
+        <div class="path-row">
+
+            <div class="path-number">
+                04
+            </div>
+
+            <div class="path-title">
+                Machine Learning
+            </div>
+
+            <div class="path-description">
+                Learning useful representations and
+                relationships from computational and
+                experimental data.
+            </div>
+
+        </div>
+
+
+        <div class="path-row">
+
+            <div class="path-number">
+                05
+            </div>
+
+            <div class="path-title">
+                Physics-Informed ML
+            </div>
+
+            <div class="path-description">
+                Incorporating physical constraints into
+                data-driven models.
+            </div>
+
+        </div>
+
+
+        <div class="path-row">
+
+            <div class="path-number">
+                06
+            </div>
+
+            <div class="path-title">
+                Prediction
+            </div>
+
+            <div class="path-description">
+                Moving from describing what happened
+                toward estimating what happens next.
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+
+<section>
+
+
+    <div class="section-header">
+
+        <div class="section-number">
+            04 / Tools
+        </div>
+
+
+        <h2 class="section-title">
+
+            Tools I use to
+            think with.
+
+        </h2>
+
+    </div>
+
+
+    <div class="skills">
+
+
+        <div class="skill">
+
+            <div class="skill-number">
+                01
+            </div>
+
+            <div class="skill-name">
+                ANSYS Fluent
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-number">
+                02
+            </div>
+
+            <div class="skill-name">
+                SOLIDWORKS
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-number">
+                03
+            </div>
+
+            <div class="skill-name">
+                CFD
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-number">
+                04
+            </div>
+
+            <div class="skill-name">
+                Heat Transfer
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-number">
+                05
+            </div>
+
+            <div class="skill-name">
+                Python
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-number">
+                06
+            </div>
+
+            <div class="skill-name">
+                Numerical Methods
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-number">
+                07
+            </div>
+
+            <div class="skill-name">
+                Machine Learning
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-number">
+                08
+            </div>
+
+            <div class="skill-name">
+                Probability
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-number">
+                09
+            </div>
+
+            <div class="skill-name">
+                Physics-Informed ML
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TIMELINE
+===================================================== -->
+
+<section>
+
+
+    <div class="section-header">
+
+        <div class="section-number">
+            05 / Timeline
+        </div>
+
+
+        <h2 class="section-title">
+
+            A direction,
+            not a destination.
+
+        </h2>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+        <div class="timeline-row">
+
+
+            <div class="timeline-year">
+                2020 — 2024
+            </div>
+
+
+            <div>
+
+                <div class="timeline-title">
+                    Mechanical Engineering
+                </div>
+
+                <p class="timeline-description">
+
+                    College of Engineering Trivandrum.
+                    Building the foundation in mechanics,
+                    thermodynamics, fluid mechanics and
+                    engineering design.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-row">
+
+
+            <div class="timeline-year">
+                2024 — 2026
+            </div>
+
+
+            <div>
+
+                <div class="timeline-title">
+                    Exploration
+                </div>
+
+                <p class="timeline-description">
+
+                    Moving toward thermal engineering,
+                    computational methods and postgraduate
+                    research.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-row">
+
+
+            <div class="timeline-year">
+                2026 —
+            </div>
+
+
+            <div>
+
+                <div class="timeline-title">
+                    IIT Madras
+                </div>
+
+                <p class="timeline-description">
+
+                    M.Tech in Thermal Engineering.
+                    Current work centred around heat transfer,
+                    flow boiling and computational research.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-row">
+
+
+            <div class="timeline-year">
+                NEXT
+            </div>
+
+
+            <div>
+
+                <div class="timeline-title">
+                    Physics × Probability × AI
+                </div>
+
+                <p class="timeline-description">
+
+                    Building toward scientific machine learning,
+                    uncertainty quantification and predictive
+                    engineering.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     NOTES
+===================================================== -->
+
+<section id="writing">
+
+
+    <div class="section-header">
+
+        <div class="section-number">
+            06 / Notes
+        </div>
+
+
+        <h2 class="section-title">
+
+            Things I am
+            trying to understand.
+
+        </h2>
+
+    </div>
+
+
+    <div class="writing">
+
+
+        <div class="writing-item">
+
+            <div class="writing-date">
+                RESEARCH
+            </div>
+
+            <div class="writing-title">
+
+                What controls heat transfer
+                in microchannel flow boiling?
+
+                <span class="writing-arrow">
+                    →
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="writing-item">
+
+            <div class="writing-date">
+                COMPUTATION
+            </div>
+
+            <div class="writing-title">
+
+                Can physical knowledge
+                reduce the amount of data
+                required by machine learning?
+
+                <span class="writing-arrow">
+                    →
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="writing-item">
+
+            <div class="writing-date">
+                PROBABILITY
+            </div>
+
+            <div class="writing-title">
+
+                What does it actually mean
+                for an engineering prediction
+                to be uncertain?
+
+                <span class="writing-arrow">
+                    →
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact" class="contact">
+
+
+    <div class="section-number">
+        07 / Contact
+    </div>
+
+
+    <h2>
+
+        Interested in
+        <em>heat, flow</em>
+        or the problems
+        between them?
+
+    </h2>
+
+
+    <p class="contact-text">
+
+        I am always interested in research,
+        engineering problems and conversations
+        that sit somewhere between physics,
+        computation and experimentation.
+
+    </p>
+
+
+    <div class="contact-links">
+
+        <a href="mailto:YOUR_EMAIL@gmail.com">
+            Email
+        </a>
+
+        <a href="https://github.com/">
+            GitHub
+        </a>
+
+        <a href="https://www.linkedin.com/">
+            LinkedIn
+        </a>
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div>
+        © 2026 Aswin S.
+    </div>
+
+
+    <div>
+        Thermal Engineering · IIT Madras
+    </div>
+
+</footer>
+
+
+</div>
+
+
+</body>
+
+</html>
