@@ -1,1055 +1,1357 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Aswin S. — Thermal Engineering & Research</title>
-
-<meta
-    name="description"
-    content="Aswin S. — Thermal Engineering, heat transfer, CFD, flow boiling, computational methods and research."
->
-
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Baskerville:wght@400;700&display=swap"
-    rel="stylesheet"
->
-
-<style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: #f8f8f6;
-    color: #111;
-    font-family: "DM Sans", sans-serif;
-    line-height: 1.6;
-}
-
-img {
-    max-width: 100%;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-
-/* =========================================================
-   VARIABLES
-========================================================= */
-
-:root {
-    --black: #111111;
-    --grey: #666666;
-    --light-grey: #9a9a9a;
-    --line: #ddddda;
-    --paper: #f8f8f6;
-    --blue: #285db2;
-    --max-width: 1450px;
-}
-
-
-/* =========================================================
-   GLOBAL
-========================================================= */
 
-.container {
-    width: min(var(--max-width), calc(100% - 80px));
-    margin: auto;
-}
+    <meta charset="UTF-8">
 
-.section {
-    padding: 150px 0;
-}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.section-line {
-    border-top: 1px solid var(--line);
-}
+    <title>Aswin S. — Thermal Engineering</title>
 
-.eyebrow {
-    font-size: 12px;
-    letter-spacing: 2.2px;
-    text-transform: uppercase;
-    color: #777;
-}
+    <meta
+        name="description"
+        content="Aswin S. — Thermal Engineering, heat transfer, CFD, multiphase flow and scientific machine learning."
+    >
 
-.serif {
-    font-family: "Libre Baskerville", Georgia, serif;
-}
+    <!-- =====================================================
+         FONTS
+    ====================================================== -->
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Baskerville:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
 
-nav {
-    height: 82px;
-    border-bottom: 1px solid var(--line);
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    <style>
 
-    padding: 0 5%;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+        /* =====================================================
+           RESET
+        ===================================================== */
 
-    background: rgba(248,248,246,0.96);
-    backdrop-filter: blur(12px);
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.logo {
-    font-family: "Libre Baskerville", Georgia, serif;
-    font-size: 25px;
-    font-weight: 700;
-    letter-spacing: -1px;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-.nav-links {
-    display: flex;
-    gap: 40px;
-}
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-family: "DM Sans", sans-serif;
+            overflow-x: hidden;
+        }
 
-.nav-links a {
-    font-size: 14px;
-    color: #444;
-    transition: color 0.25s ease;
-}
+        a {
+            color: inherit;
+        }
 
-.nav-links a:hover {
-    color: var(--blue);
-}
 
+        /* =====================================================
+           HEADER
+        ===================================================== */
 
-/* =========================================================
-   HERO
-========================================================= */
+        header {
+            height: 64px;
 
-.hero {
-    min-height: calc(100vh - 82px);
+            width: 100%;
 
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
+            position: sticky;
+            top: 0;
 
-    align-items: center;
+            z-index: 1000;
 
-    gap: 80px;
-    padding: 90px 0 100px;
-}
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-.hero-left {
-    max-width: 800px;
-}
+            padding: 0 48px;
 
-.hero-kicker {
-    margin-bottom: 32px;
-}
+            background: rgba(255,255,255,0.96);
 
-.hero-title {
-    font-family: "Libre Baskerville", Georgia, serif;
+            backdrop-filter: blur(12px);
 
-    font-size: clamp(55px, 6.3vw, 105px);
+            border-bottom: 1px solid #dddddd;
+        }
 
-    line-height: 0.98;
-    letter-spacing: -5px;
 
-    font-weight: 400;
-}
+        .logo {
+            font-family: "Libre Baskerville", Georgia, serif;
 
-.hero-title .blue {
-    color: var(--blue);
-}
+            font-size: 25px;
 
-.hero-description {
-    margin-top: 45px;
+            letter-spacing: -1.5px;
 
-    max-width: 760px;
+            text-decoration: none;
 
-    font-size: 20px;
-    line-height: 1.8;
+            color: #111111;
+        }
 
-    color: #555;
-}
 
-.hero-meta {
-    margin-top: 55px;
+        nav {
+            display: flex;
 
-    border-top: 1px solid var(--line);
+            align-items: center;
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+            gap: 34px;
+        }
 
-    gap: 25px;
 
-    padding-top: 25px;
-}
+        nav a {
+            position: relative;
 
-.meta-title {
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #999;
-    margin-bottom: 8px;
-}
+            font-size: 14px;
 
-.meta-value {
-    font-size: 15px;
-    color: #333;
-}
+            text-decoration: none;
 
+            color: #333333;
 
-/* =========================================================
-   PORTRAIT
-========================================================= */
+            padding: 23px 0;
 
-.hero-portrait {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+            transition: color 0.2s ease;
+        }
 
-    position: relative;
 
-    min-height: 500px;
+        nav a:hover {
+            color: #245bb5;
+        }
 
-    /* IMPORTANT:
-       No border
-       No rectangle
-       No box
-    */
-    border: none;
-    outline: none;
-    box-shadow: none;
-    background: transparent;
-}
 
-.hero-portrait::before {
-    content: "ASWIN S.";
+        /* =====================================================
+           GENERAL
+        ===================================================== */
 
-    position: absolute;
+        .container {
+            width: 100%;
 
-    left: 0;
-    top: 50%;
+            max-width: 1440px;
 
-    transform: rotate(-90deg) translateX(-50%);
+            margin: auto;
 
-    transform-origin: left top;
+            padding-left: 48px;
+            padding-right: 48px;
+        }
 
-    font-size: 10px;
-    letter-spacing: 3px;
 
-    color: #888;
-}
+        /* =====================================================
+           HERO
+        ===================================================== */
 
-.hero-portrait img {
-    width: min(470px, 90%);
+        .hero {
+            max-width: 1440px;
 
-    height: auto;
+            margin: auto;
 
-    display: block;
+            padding: 48px 48px 0;
+        }
 
-    /* NO BORDER */
-    border: none;
-    outline: none;
-    box-shadow: none;
 
-    background: transparent;
+        .hero-grid {
+            min-height: 510px;
 
-    mix-blend-mode: multiply;
-}
+            display: grid;
 
+            grid-template-columns: 1fr 0.95fr;
 
-/* =========================================================
-   ABOUT
-========================================================= */
+            gap: 30px;
 
-.about-grid {
-    display: grid;
+            align-items: center;
+        }
 
-    grid-template-columns: 0.75fr 1.25fr;
 
-    gap: 100px;
-}
+        .hero-content {
+            max-width: 760px;
+        }
 
-.section-number {
-    font-size: 13px;
-    letter-spacing: 2px;
-    color: #888;
-}
 
-.about-title {
-    font-family: "Libre Baskerville", Georgia, serif;
+        .eyebrow {
+            color: #245bb5;
 
-    font-size: clamp(38px, 4vw, 65px);
+            font-size: 11px;
 
-    line-height: 1.1;
+            letter-spacing: 3px;
 
-    letter-spacing: -2px;
+            margin-bottom: 28px;
+        }
 
-    font-weight: 400;
 
-    max-width: 850px;
-}
+        .hero h1 {
+            font-family: "Libre Baskerville", Georgia, serif;
 
-.about-text {
-    margin-top: 40px;
+            font-size: clamp(54px, 5.4vw, 82px);
 
-    font-size: 18px;
+            font-weight: 400;
 
-    line-height: 1.9;
+            line-height: 0.98;
 
-    color: #555;
+            letter-spacing: -4px;
 
-    max-width: 800px;
-}
+            margin-bottom: 30px;
+        }
 
-.about-text p + p {
-    margin-top: 25px;
-}
 
+        .hero h1 span {
+            color: #245bb5;
+        }
 
-/* =========================================================
-   RESEARCH
-========================================================= */
 
-.research-intro {
-    display: grid;
+        .hero-description {
+            max-width: 700px;
 
-    grid-template-columns: 0.75fr 1.25fr;
+            font-size: 16px;
 
-    gap: 100px;
-}
+            line-height: 1.65;
 
-.research-title {
-    font-family: "Libre Baskerville", Georgia, serif;
+            color: #535b65;
 
-    font-size: clamp(42px, 5vw, 76px);
+            margin-bottom: 28px;
+        }
 
-    line-height: 1.05;
 
-    letter-spacing: -3px;
+        /* =====================================================
+           BUTTONS
+        ===================================================== */
 
-    font-weight: 400;
-}
+        .hero-buttons {
+            display: flex;
 
-.research-description {
-    font-size: 18px;
+            align-items: center;
 
-    line-height: 1.9;
+            gap: 28px;
+        }
 
-    color: #555;
 
-    max-width: 800px;
-}
+        .button {
+            display: inline-flex;
 
-.research-flow {
-    margin-top: 100px;
+            align-items: center;
 
-    border-top: 1px solid var(--line);
+            gap: 15px;
 
-    display: grid;
+            text-decoration: none;
 
-    grid-template-columns: repeat(6, 1fr);
-}
+            font-size: 14px;
 
-.research-step {
-    min-height: 190px;
+            transition: 0.25s ease;
+        }
 
-    padding: 25px 20px 20px;
 
-    border-right: 1px solid var(--line);
+        .button.primary {
+            background: #245bb5;
 
-    position: relative;
-}
+            color: white;
 
-.research-step:first-child {
-    border-left: 1px solid var(--line);
-}
+            border: 1px solid #245bb5;
 
-.research-step-number {
-    font-size: 11px;
-    color: #999;
-    letter-spacing: 1px;
-}
+            padding: 14px 21px;
+        }
 
-.research-step h3 {
-    margin-top: 55px;
 
-    font-family: "Libre Baskerville", Georgia, serif;
+        .button.primary:hover {
+            background: #111111;
 
-    font-size: 18px;
+            border-color: #111111;
 
-    font-weight: 400;
-}
+            transform: translateY(-2px);
+        }
 
-.research-step p {
-    margin-top: 8px;
 
-    font-size: 13px;
+        .button.secondary {
+            color: #245bb5;
 
-    color: #777;
-}
+            border-bottom: 1px solid #245bb5;
 
+            padding: 13px 0;
+        }
 
-/* =========================================================
-   PUBLICATION
-========================================================= */
 
-.publication-section {
-    background: #f2f2ef;
-}
+        .button.secondary:hover {
+            color: #111111;
 
-.publication-grid {
-    display: grid;
+            border-color: #111111;
+        }
 
-    grid-template-columns: 0.8fr 1.2fr;
 
-    gap: 100px;
+        /* =====================================================
+           PORTRAIT
+        ===================================================== */
 
-    align-items: start;
-}
+        .hero-image {
+            height: 510px;
 
+            display: flex;
 
-/* Springer image */
+            align-items: flex-end;
 
-.pub-media {
-    position: relative;
+            justify-content: center;
 
-    width: min(430px, 100%);
+            position: relative;
+        }
 
-    margin: auto;
 
-    background: transparent;
+        .hero-image img {
+            width: min(540px, 100%);
 
-    border: none;
+            max-height: 510px;
 
-    box-shadow: none;
-}
+            height: auto;
 
-.pub-media a {
-    display: block;
+            display: block;
 
-    border: none;
+            object-fit: contain;
 
-    outline: none;
-}
+            object-position: bottom center;
 
-.pub-media img {
-    width: 100%;
+            border: none !important;
 
-    height: auto;
+            outline: none !important;
 
-    display: block;
+            box-shadow: none !important;
 
-    border: none;
+            background: transparent;
 
-    outline: none;
+            mix-blend-mode: multiply;
+        }
 
-    box-shadow: none;
 
-    transition:
-        transform 0.4s ease,
-        opacity 0.4s ease;
-}
+        /* =====================================================
+           INFORMATION STRIP
+        ===================================================== */
 
-.pub-media:hover img {
-    transform: translateY(-6px);
-    opacity: 0.92;
-}
+        .info-strip {
+            display: grid;
 
-.pub-label {
-    position: absolute;
+            grid-template-columns: repeat(4, 1fr);
 
-    left: 0;
-    bottom: 0;
+            border-top: 1px solid #d9d9d9;
 
-    background: #111;
+            border-bottom: 1px solid #d9d9d9;
+        }
 
-    color: white;
 
-    padding: 13px 17px;
+        .info-item {
+            padding: 21px 27px;
 
-    font-size: 10px;
+            border-right: 1px solid #d9d9d9;
+        }
 
-    letter-spacing: 2px;
 
-    z-index: 2;
-}
+        .info-item:first-child {
+            padding-left: 0;
+        }
 
 
-/* Publication information */
+        .info-item:last-child {
+            border-right: none;
+        }
 
-.pub-info {
-    max-width: 850px;
-}
 
-.pub-title {
-    margin-top: 25px;
+        .info-label {
+            display: block;
 
-    font-family: "Libre Baskerville", Georgia, serif;
+            color: #777777;
 
-    font-size: clamp(35px, 4vw, 65px);
+            font-size: 9px;
 
-    line-height: 1.1;
+            letter-spacing: 2px;
 
-    letter-spacing: -2.5px;
+            margin-bottom: 9px;
+        }
 
-    font-weight: 400;
-}
 
-.pub-authors {
-    margin-top: 35px;
+        .info-item strong {
+            font-size: 14px;
 
-    font-size: 16px;
+            font-weight: 400;
+        }
 
-    color: #555;
 
-    line-height: 1.8;
-}
+        /* =====================================================
+           EDITORIAL SECTION
+        ===================================================== */
 
-.pub-details {
-    margin-top: 45px;
+        .editorial-section {
+            max-width: 1440px;
 
-    border-top: 1px solid var(--line);
-}
+            margin: auto;
 
-.pub-detail {
-    padding: 22px 0;
+            padding: 62px 48px;
 
-    border-bottom: 1px solid var(--line);
-}
+            display: grid;
 
-.pub-detail-title {
-    font-size: 11px;
+            grid-template-columns: 190px 1fr 1fr;
 
-    text-transform: uppercase;
+            gap: 45px;
 
-    letter-spacing: 1.5px;
+            border-bottom: 1px solid #d9d9d9;
+        }
 
-    color: #888;
 
-    margin-bottom: 7px;
-}
+        .section-number {
+            font-size: 10px;
 
-.pub-detail-value {
-    font-size: 16px;
+            letter-spacing: 2px;
+        }
 
-    color: #333;
-}
 
-.pub-buttons {
-    margin-top: 35px;
+        .section-number span {
+            display: block;
 
-    display: flex;
+            color: #245bb5;
 
-    gap: 12px;
+            font-size: 13px;
 
-    flex-wrap: wrap;
-}
+            margin-bottom: 11px;
+        }
 
-.button {
-    display: inline-flex;
 
-    align-items: center;
+        .section-title {
+            font-family: "Libre Baskerville", Georgia, serif;
 
-    justify-content: center;
+            font-size: clamp(35px, 3.3vw, 52px);
 
-    padding: 16px 22px;
+            line-height: 1.08;
 
-    border: 1px solid #111;
+            letter-spacing: -2px;
 
-    font-size: 13px;
+            font-weight: 400;
+        }
 
-    transition:
-        background 0.25s ease,
-        color 0.25s ease;
-}
 
-.button.primary {
-    background: #111;
-    color: white;
-}
+        .section-text {
+            max-width: 520px;
 
-.button.primary:hover {
-    background: var(--blue);
-    border-color: var(--blue);
-}
+            font-size: 15px;
 
-.button.secondary:hover {
-    background: #111;
-    color: white;
-}
+            line-height: 1.7;
 
+            color: #555c65;
+        }
 
-/* =========================================================
-   WORK
-========================================================= */
 
-.work-grid {
-    display: grid;
+        .section-text a {
+            color: #245bb5;
 
-    grid-template-columns: repeat(2, 1fr);
+            text-decoration: none;
+        }
 
-    gap: 1px;
 
-    background: var(--line);
+        /* =====================================================
+           RESEARCH PATH
+        ===================================================== */
 
-    margin-top: 80px;
-}
+        .research-path {
+            max-width: 1440px;
 
-.work-card {
-    background: var(--paper);
+            margin: auto;
 
-    padding: 50px;
+            padding: 0 48px 65px;
+        }
 
-    min-height: 430px;
 
-    transition:
-        background 0.3s ease,
-        transform 0.3s ease;
-}
+        .research-line {
+            display: grid;
 
-.work-card:hover {
-    background: #f1f1ed;
-}
+            grid-template-columns: repeat(6, 1fr);
 
-.work-number {
-    font-size: 11px;
+            border-bottom: 1px solid #d9d9d9;
+        }
 
-    color: #999;
 
-    letter-spacing: 2px;
-}
+        .research-step {
+            padding: 22px 18px;
 
-.work-title {
-    margin-top: 100px;
+            border-right: 1px solid #d9d9d9;
+        }
 
-    font-family: "Libre Baskerville", Georgia, serif;
 
-    font-size: 34px;
+        .research-step:first-child {
+            padding-left: 0;
+        }
 
-    line-height: 1.2;
 
-    font-weight: 400;
+        .research-step:last-child {
+            border-right: none;
+        }
 
-    max-width: 650px;
-}
 
-.work-description {
-    margin-top: 25px;
+        .research-step small {
+            display: block;
 
-    max-width: 620px;
+            color: #245bb5;
 
-    color: #666;
+            font-size: 9px;
 
-    line-height: 1.8;
-}
+            letter-spacing: 1.5px;
 
-.work-tags {
-    margin-top: 30px;
+            margin-bottom: 8px;
+        }
 
-    display: flex;
 
-    flex-wrap: wrap;
+        .research-step strong {
+            font-size: 14px;
 
-    gap: 8px;
-}
+            font-weight: 500;
+        }
 
-.tag {
-    border: 1px solid #ccc;
 
-    padding: 7px 11px;
+        /* =====================================================
+           PROJECTS
+        ===================================================== */
 
-    font-size: 11px;
+        .projects-section {
+            max-width: 1440px;
 
-    color: #666;
-}
+            margin: auto;
 
+            padding: 65px 48px 80px;
 
-/* =========================================================
-   SKILLS
-========================================================= */
+            border-bottom: 1px solid #d9d9d9;
+        }
 
-.skills-grid {
-    margin-top: 80px;
 
-    display: grid;
+        .projects-heading {
+            display: grid;
 
-    grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: 190px 1fr 1fr;
 
-    border-top: 1px solid var(--line);
+            gap: 45px;
 
-    border-left: 1px solid var(--line);
-}
+            margin-bottom: 40px;
+        }
 
-.skill {
-    padding: 35px 25px;
 
-    border-right: 1px solid var(--line);
+        .projects-heading h2 {
+            font-family: "Libre Baskerville", Georgia, serif;
 
-    border-bottom: 1px solid var(--line);
+            font-size: clamp(35px, 3.3vw, 52px);
 
-    min-height: 130px;
+            line-height: 1.08;
 
-    display: flex;
+            letter-spacing: -2px;
 
-    align-items: flex-end;
-}
+            font-weight: 400;
+        }
 
-.skill span {
-    font-family: "Libre Baskerville", Georgia, serif;
 
-    font-size: 19px;
-}
+        .projects-heading p {
+            max-width: 520px;
 
+            font-size: 15px;
 
-/* =========================================================
-   NOTES
-========================================================= */
+            line-height: 1.7;
 
-.notes-grid {
-    margin-top: 80px;
+            color: #555c65;
+        }
 
-    display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+        .project-grid {
+            margin-left: 235px;
 
-    gap: 40px;
-}
+            display: grid;
 
-.note {
-    border-top: 1px solid var(--line);
+            grid-template-columns: repeat(3, 1fr);
 
-    padding-top: 25px;
-}
+            gap: 22px;
+        }
 
-.note-number {
-    color: #999;
 
-    font-size: 11px;
+        .project-card {
+            display: block;
 
-    letter-spacing: 1.5px;
-}
+            text-decoration: none;
 
-.note h3 {
-    margin-top: 30px;
+            transition: transform 0.25s ease;
+        }
 
-    font-family: "Libre Baskerville", Georgia, serif;
 
-    font-size: 23px;
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
 
-    font-weight: 400;
 
-    line-height: 1.35;
-}
+        .project-image {
+            height: 210px;
 
-.note p {
-    margin-top: 18px;
+            margin-bottom: 17px;
 
-    color: #666;
+            background: #f3f4f6;
 
-    font-size: 14px;
+            border: 1px solid #dddddd;
 
-    line-height: 1.8;
-}
+            display: flex;
 
+            align-items: center;
 
-/* =========================================================
-   CONTACT
-========================================================= */
+            justify-content: center;
 
-.contact {
-    min-height: 80vh;
+            overflow: hidden;
+        }
 
-    display: flex;
 
-    flex-direction: column;
+        .project-placeholder {
+            font-family: "Libre Baskerville", Georgia, serif;
 
-    justify-content: space-between;
-}
+            color: #245bb5;
 
-.contact-title {
-    margin-top: 100px;
+            font-size: 30px;
+        }
 
-    font-family: "Libre Baskerville", Georgia, serif;
 
-    font-size: clamp(55px, 8vw, 125px);
+        .project-number {
+            color: #245bb5;
 
-    line-height: 0.95;
+            font-size: 9px;
 
-    letter-spacing: -5px;
+            letter-spacing: 2px;
 
-    font-weight: 400;
-}
+            margin-bottom: 7px;
+        }
 
-.contact-title .blue {
-    color: var(--blue);
-}
 
-.contact-links {
-    border-top: 1px solid var(--line);
+        .project-card h3 {
+            font-family: "Libre Baskerville", Georgia, serif;
 
-    display: grid;
+            font-size: 22px;
 
-    grid-template-columns: repeat(3, 1fr);
+            line-height: 1.2;
 
-    margin-top: 100px;
-}
+            font-weight: 400;
 
-.contact-link {
-    padding: 30px 20px 30px 0;
+            margin-bottom: 8px;
+        }
 
-    border-right: 1px solid var(--line);
 
-    transition: color 0.25s ease;
-}
+        .project-card p {
+            color: #646a72;
 
-.contact-link:hover {
-    color: var(--blue);
-}
+            font-size: 13px;
 
-.contact-link span {
-    display: block;
+            line-height: 1.55;
+        }
 
-    font-size: 11px;
 
-    letter-spacing: 1.5px;
+        /* =====================================================
+           PUBLICATION
+        ===================================================== */
 
-    text-transform: uppercase;
+        .publication-section {
+            max-width: 1440px;
 
-    color: #999;
+            margin: auto;
 
-    margin-bottom: 10px;
-}
+            padding: 72px 48px;
 
-.contact-link strong {
-    font-size: 16px;
+            display: grid;
 
-    font-weight: 500;
-}
+            grid-template-columns: 190px 0.75fr 1.25fr;
 
+            gap: 45px;
 
-/* =========================================================
-   FOOTER
-========================================================= */
+            border-bottom: 1px solid #d9d9d9;
+        }
 
-footer {
-    border-top: 1px solid var(--line);
 
-    padding: 25px 0;
+        /*
+            IMPORTANT:
 
-    display: flex;
+            This image is NOT stored in assets.
 
-    justify-content: space-between;
+            It is requested directly from Springer.
+        */
 
-    color: #888;
+        .publication-cover {
+            display: block;
 
-    font-size: 12px;
-}
+            position: relative;
 
+            text-decoration: none;
 
-/* =========================================================
-   REVEAL ANIMATION
-========================================================= */
+            overflow: hidden;
 
-.reveal {
-    opacity: 0;
+            background: #f5f5f5;
 
-    transform: translateY(25px);
+            align-self: start;
+        }
 
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-}
 
-.reveal.visible {
-    opacity: 1;
+        .publication-cover img {
+            width: 100%;
 
-    transform: translateY(0);
-}
+            height: auto;
 
+            display: block;
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+            border: none;
 
-@media (max-width: 1000px) {
+            transition: transform 0.4s ease;
+        }
 
-    .container {
-        width: min(92%, var(--max-width));
-    }
 
-    nav {
-        padding: 0 4%;
-    }
+        .publication-cover:hover img {
+            transform: scale(1.025);
+        }
 
-    .nav-links {
-        gap: 18px;
-    }
 
-    .hero {
-        grid-template-columns: 1fr;
+        .publication-overlay {
+            position: absolute;
 
-        gap: 60px;
-    }
+            left: 0;
 
-    .hero-portrait {
-        min-height: 400px;
-    }
+            bottom: 12px;
 
-    .about-grid,
-    .research-intro,
-    .publication-grid {
-        grid-template-columns: 1fr;
+            background: #111111;
 
-        gap: 50px;
-    }
+            color: white;
 
-    .research-flow {
-        grid-template-columns: repeat(3, 1fr);
-    }
+            padding: 11px 16px;
 
-    .research-step:nth-child(4) {
-        border-left: 1px solid var(--line);
-    }
+            font-size: 9px;
 
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+            letter-spacing: 2px;
+        }
 
-    .notes-grid {
-        grid-template-columns: 1fr;
-    }
-}
 
+        .publication-info h2 {
+            font-family: "Libre Baskerville", Georgia, serif;
 
-@media (max-width: 700px) {
+            font-size: clamp(32px, 3vw, 49px);
 
-    .section {
-        padding: 100px 0;
-    }
+            line-height: 1.08;
 
-    nav {
-        height: auto;
+            letter-spacing: -2px;
 
-        padding: 22px 5%;
+            font-weight: 400;
 
-        align-items: flex-start;
-    }
+            margin-bottom: 28px;
+        }
 
-    .nav-links {
-        display: none;
-    }
 
-    .hero {
-        padding-top: 70px;
-    }
+        .publication-label {
+            color: #245bb5;
 
-    .hero-title {
-        font-size: 48px;
+            font-size: 10px;
 
-        letter-spacing: -3px;
-    }
+            letter-spacing: 2px;
 
-    .hero-description {
-        font-size: 17px;
-    }
+            margin-bottom: 10px;
+        }
 
-    .hero-meta {
-        grid-template-columns: 1fr;
 
-        gap: 20px;
-    }
+        .publication-meta {
+            color: #555c65;
 
-    .research-flow {
-        grid-template-columns: 1fr;
-    }
+            font-size: 14px;
 
-    .research-step,
-    .research-step:first-child,
-    .research-step:nth-child(4) {
-        border-left: 1px solid var(--line);
-    }
+            line-height: 1.8;
 
-    .work-grid {
-        grid-template-columns: 1fr;
-    }
+            margin-bottom: 25px;
+        }
 
-    .work-card {
-        padding: 35px;
 
-        min-height: auto;
-    }
+        .publication-meta strong {
+            color: #222222;
 
-    .work-title {
-        margin-top: 70px;
-    }
+            font-weight: 500;
+        }
 
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
 
-    .contact-links {
-        grid-template-columns: 1fr;
-    }
+        .publication-description {
+            max-width: 720px;
 
-    .contact-link {
-        border-right: none;
+            color: #555c65;
 
-        border-bottom: 1px solid var(--line);
-    }
+            font-size: 15px;
 
-    .contact-title {
-        font-size: 55px;
+            line-height: 1.7;
 
-        letter-spacing: -3px;
-    }
+            margin-bottom: 28px;
+        }
 
-    footer {
-        flex-direction: column;
 
-        gap: 10px;
-    }
-}
+        /* =====================================================
+           PUBLICATION BUTTONS
+        ===================================================== */
 
-</style>
+        .publication-actions {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+
+        .pub-button {
+            display: inline-flex;
+
+            align-items: center;
+
+            padding: 13px 17px;
+
+            border: 1px solid #222222;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            transition: 0.25s ease;
+        }
+
+
+        .pub-button:hover {
+            color: white;
+
+            background: #245bb5;
+
+            border-color: #245bb5;
+        }
+
+
+        .pub-button.blue {
+            color: white;
+
+            background: #245bb5;
+
+            border-color: #245bb5;
+        }
+
+
+        .pub-button.blue:hover {
+            background: #111111;
+
+            border-color: #111111;
+        }
+
+
+        /* =====================================================
+           LINKS
+        ===================================================== */
+
+        .external-links {
+            max-width: 1440px;
+
+            margin: auto;
+
+            padding: 70px 48px;
+
+            display: grid;
+
+            grid-template-columns: 190px 1fr;
+
+            gap: 45px;
+
+            border-bottom: 1px solid #d9d9d9;
+        }
+
+
+        .external-content h2 {
+            font-family: "Libre Baskerville", Georgia, serif;
+
+            font-size: clamp(38px, 3.7vw, 56px);
+
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+
+            font-weight: 400;
+
+            margin-bottom: 35px;
+        }
+
+
+        .link-grid {
+            max-width: 900px;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+
+        .link-card {
+            min-height: 95px;
+
+            padding: 22px 23px;
+
+            border: 1px solid #d5d5d5;
+
+            background: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            text-decoration: none;
+
+            transition: 0.25s ease;
+        }
+
+
+        .link-card small {
+            display: block;
+
+            color: #777777;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .link-card strong {
+            font-size: 16px;
+
+            font-weight: 500;
+        }
+
+
+        .link-card > span {
+            color: #245bb5;
+
+            font-size: 20px;
+        }
+
+
+        .link-card:hover {
+            background: #245bb5;
+
+            border-color: #245bb5;
+
+            color: white;
+
+            transform: translateY(-3px);
+        }
+
+
+        .link-card:hover small,
+        .link-card:hover > span {
+            color: white;
+        }
+
+
+        /* =====================================================
+           SKILLS
+        ===================================================== */
+
+        .skills-section {
+            max-width: 1440px;
+
+            margin: auto;
+
+            padding: 65px 48px;
+
+            display: grid;
+
+            grid-template-columns: 190px 1fr;
+
+            gap: 45px;
+
+            border-bottom: 1px solid #d9d9d9;
+        }
+
+
+        .skills-content h2 {
+            font-family: "Libre Baskerville", Georgia, serif;
+
+            font-size: clamp(38px, 3.7vw, 56px);
+
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+
+            font-weight: 400;
+
+            margin-bottom: 32px;
+        }
+
+
+        .skills-grid {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+
+        .skill {
+            border: 1px solid #d5d5d5;
+
+            padding: 11px 15px;
+
+            font-size: 12px;
+
+            background: white;
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .contact-section {
+            max-width: 1440px;
+
+            margin: auto;
+
+            padding: 80px 48px;
+
+            display: grid;
+
+            grid-template-columns: 190px 1fr;
+
+            gap: 45px;
+        }
+
+
+        .contact-content h2 {
+            font-family: "Libre Baskerville", Georgia, serif;
+
+            font-size: clamp(45px, 5vw, 75px);
+
+            line-height: 1;
+
+            letter-spacing: -3px;
+
+            font-weight: 400;
+
+            margin-bottom: 25px;
+        }
+
+
+        .contact-content p {
+            max-width: 680px;
+
+            color: #555c65;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+
+            margin-bottom: 28px;
+        }
+
+
+        .contact-email {
+            display: inline-block;
+
+            color: #245bb5;
+
+            font-size: 18px;
+
+            text-decoration: none;
+
+            border-bottom: 1px solid #245bb5;
+
+            padding-bottom: 5px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .contact-socials {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+
+        .contact-socials a {
+            border: 1px solid #d5d5d5;
+
+            padding: 12px 17px;
+
+            font-size: 13px;
+
+            text-decoration: none;
+
+            transition: 0.25s ease;
+        }
+
+
+        .contact-socials a:hover {
+            background: #245bb5;
+
+            border-color: #245bb5;
+
+            color: white;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            border-top: 1px solid #d9d9d9;
+
+            padding: 20px 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            color: #777777;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 1100px) {
+
+            .hero-grid {
+                grid-template-columns: 1fr 0.85fr;
+            }
+
+            .hero h1 {
+                font-size: clamp(48px, 6vw, 70px);
+            }
+
+            .editorial-section,
+            .projects-heading,
+            .publication-section {
+                gap: 30px;
+            }
+
+            .project-grid {
+                margin-left: 180px;
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 800px) {
+
+            header {
+                padding: 0 24px;
+            }
+
+
+            nav {
+                gap: 16px;
+            }
+
+
+            nav a {
+                font-size: 12px;
+            }
+
+
+            .hero {
+                padding: 45px 24px 0;
+            }
+
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+
+                min-height: auto;
+            }
+
+
+            .hero h1 {
+                font-size: clamp(45px, 11vw, 65px);
+
+                letter-spacing: -3px;
+            }
+
+
+            .hero-image {
+                height: auto;
+
+                max-height: 470px;
+            }
+
+
+            .hero-image img {
+                width: 80%;
+
+                max-height: 460px;
+            }
+
+
+            .info-strip {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+
+            .info-item:nth-child(2) {
+                border-right: none;
+            }
+
+
+            .info-item:nth-child(3),
+            .info-item:nth-child(4) {
+                border-top: 1px solid #d9d9d9;
+            }
+
+
+            .editorial-section,
+            .projects-heading,
+            .publication-section,
+            .external-links,
+            .skills-section,
+            .contact-section {
+                grid-template-columns: 1fr;
+
+                padding: 50px 24px;
+
+                gap: 25px;
+            }
+
+
+            .project-grid {
+                margin-left: 0;
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .research-path {
+                padding-left: 24px;
+
+                padding-right: 24px;
+            }
+
+
+            .research-line {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+
+            .link-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            footer {
+                padding: 20px 24px;
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            nav {
+                display: none;
+            }
+
+
+            .hero h1 {
+                font-size: 45px;
+
+                line-height: 1.02;
+
+                letter-spacing: -2px;
+            }
+
+
+            .hero-buttons {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+
+            .info-strip {
+                grid-template-columns: 1fr;
+            }
+
+
+            .info-item {
+                border-right: none !important;
+
+                border-bottom: 1px solid #d9d9d9;
+            }
+
+
+            .info-item:last-child {
+                border-bottom: none;
+            }
+
+
+            .research-line {
+                grid-template-columns: 1fr;
+            }
+
+
+            .research-step {
+                border-right: none;
+
+                border-bottom: 1px solid #d9d9d9;
+            }
+
+
+            .research-step:last-child {
+                border-bottom: none;
+            }
+
+
+            footer {
+                flex-direction: column;
+
+                gap: 8px;
+
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
 <body>
 
 
-<!-- ======================================================
-     NAVIGATION
-======================================================= -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-<nav>
+<header>
 
-    <a href="#top" class="logo">
+    <a
+        href="#home"
+        class="logo"
+    >
         ASWIN.
     </a>
 
-    <div class="nav-links">
+
+    <nav>
 
         <a href="#about">About</a>
 
@@ -1057,544 +1359,174 @@ footer {
 
         <a href="#publication">Publication</a>
 
-        <a href="#work">Work</a>
+        <a href="#projects">Work</a>
 
         <a href="#skills">Skills</a>
 
         <a href="#contact">Contact</a>
 
-    </div>
+    </nav>
 
-</nav>
-
-
-
-<main id="top">
+</header>
 
 
-<!-- ======================================================
+
+<main>
+
+
+<!-- =====================================================
      HERO
-======================================================= -->
+===================================================== -->
 
-<section class="hero container">
-
-    <div class="hero-left reveal">
-
-        <div class="eyebrow hero-kicker">
-            THERMAL ENGINEERING · RESEARCH · COMPUTATION
-        </div>
+<section
+    class="hero"
+    id="home"
+>
 
 
-        <h1 class="hero-title">
-
-            Understanding
-
-            <br>
-
-            <span class="blue">heat</span>, flow and
-
-            <br>
-
-            the systems
-
-            <br>
-
-            between them.
-
-        </h1>
+    <div class="hero-grid">
 
 
-        <p class="hero-description">
-
-            My work sits at the intersection of thermal engineering,
-            computational methods and experimental research —
-            from heat-transfer enhancement and CFD to microchannel
-            flow boiling and physics-informed machine learning.
-
-        </p>
+        <div class="hero-content">
 
 
-        <div class="hero-meta">
-
-            <div>
-
-                <div class="meta-title">
-                    Current
-                </div>
-
-                <div class="meta-value">
-                    M.Tech · IIT Madras
-                </div>
-
+            <div class="eyebrow">
+                THERMAL ENGINEERING · CFD · SCIENTIFIC ML
             </div>
 
 
-            <div>
+            <h1>
 
-                <div class="meta-title">
-                    Field
-                </div>
+                Understanding<br>
 
-                <div class="meta-value">
-                    Thermal Engineering
-                </div>
+                <span>heat, flow</span> and the<br>
 
-            </div>
+                systems between them.
 
+            </h1>
 
-            <div>
 
-                <div class="meta-title">
-                    Research
-                </div>
+            <p class="hero-description">
 
-                <div class="meta-value">
-                    Heat Transfer · CFD · ML
-                </div>
+                I work at the intersection of thermal engineering,
+                computational methods and experimental research —
+                from heat-transfer enhancement and CFD to
+                microchannel flow boiling and physics-informed
+                machine learning.
 
-            </div>
+            </p>
 
-        </div>
 
-    </div>
+            <div class="hero-buttons">
 
-
-
-    <!-- ==================================================
-         PORTRAIT
-    =================================================== -->
-
-    <div class="hero-portrait reveal">
-
-        <!--
-            Upload your line-art portrait to:
-
-            assets/portrait-lineart.png
-
-            IMPORTANT:
-            There is intentionally NO rectangular border.
-        -->
-
-        <img
-            src="assets/portrait-lineart.png"
-            alt="Aswin S. line art portrait"
-            onerror="this.style.display='none';"
-        >
-
-    </div>
-
-</section>
-
-
-
-<!-- ======================================================
-     ABOUT
-======================================================= -->
-
-<section id="about" class="section section-line">
-
-    <div class="container">
-
-        <div class="about-grid">
-
-            <div class="section-number">
-                01 / ABOUT
-            </div>
-
-
-            <div class="reveal">
-
-                <h2 class="about-title">
-
-                    Research begins with
-                    a question worth
-                    understanding.
-
-                </h2>
-
-
-                <div class="about-text">
-
-                    <p>
-                        My interests revolve around understanding how
-                        heat and fluid flow behave inside engineering
-                        systems, and how computational methods can
-                        help turn that understanding into useful
-                        predictions.
-                    </p>
-
-
-                    <p>
-                        My current research focuses on microchannel
-                        flow boiling, combining experiments and
-                        simulation to study complex two-phase thermal
-                        transport.
-                    </p>
-
-
-                    <p>
-                        Alongside thermal-fluid research, I am exploring
-                        probability, machine learning and physics-informed
-                        approaches for engineering prediction.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ======================================================
-     RESEARCH
-======================================================= -->
-
-<section id="research" class="section">
-
-    <div class="container">
-
-        <div class="research-intro">
-
-            <div class="section-number">
-                02 / RESEARCH
-            </div>
-
-
-            <div class="reveal">
-
-                <h2 class="research-title">
-
-                    Physics first.
-                    Computation second.
-
-                </h2>
-
-
-                <p class="research-description">
-
-                    I am interested in building predictive methods
-                    that retain the physical meaning of engineering
-                    systems rather than treating data as a black box.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="research-flow reveal">
-
-
-            <div class="research-step">
-
-                <div class="research-step-number">
-                    01
-                </div>
-
-                <h3>
-                    Physics
-                </h3>
-
-                <p>
-                    Heat transfer & fluid mechanics
-                </p>
-
-            </div>
-
-
-
-            <div class="research-step">
-
-                <div class="research-step-number">
-                    02
-                </div>
-
-                <h3>
-                    Experiments
-                </h3>
-
-                <p>
-                    Measurements & validation
-                </p>
-
-            </div>
-
-
-
-            <div class="research-step">
-
-                <div class="research-step-number">
-                    03
-                </div>
-
-                <h3>
-                    Probability
-                </h3>
-
-                <p>
-                    Uncertainty & inference
-                </p>
-
-            </div>
-
-
-
-            <div class="research-step">
-
-                <div class="research-step-number">
-                    04
-                </div>
-
-                <h3>
-                    Machine Learning
-                </h3>
-
-                <p>
-                    Data-driven modelling
-                </p>
-
-            </div>
-
-
-
-            <div class="research-step">
-
-                <div class="research-step-number">
-                    05
-                </div>
-
-                <h3>
-                    Physics-informed ML
-                </h3>
-
-                <p>
-                    Physics + learning
-                </p>
-
-            </div>
-
-
-
-            <div class="research-step">
-
-                <div class="research-step-number">
-                    06
-                </div>
-
-                <h3>
-                    Prediction
-                </h3>
-
-                <p>
-                    Engineering decision models
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ======================================================
-     PUBLICATION
-======================================================= -->
-
-<section id="publication" class="section publication-section">
-
-    <div class="container">
-
-        <div class="publication-grid">
-
-
-            <!-- SPRINGER COVER -->
-
-            <div class="pub-media reveal">
-
-                <!--
-                    Clicking this image opens Springer.
-
-                    Official Springer publication page:
-                    https://link.springer.com/book/10.1007/978-981-96-8777-0
-                -->
 
                 <a
-                    href="https://link.springer.com/book/10.1007/978-981-96-8777-0"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Open publication on Springer"
+                    href="#research"
+                    class="button primary"
                 >
 
-                    <img
-                        src="https://media.springernature.com/full/springer-static/cover-hires/book/978-981-96-8777-0"
-                        alt="Advances in Aerospace and Energy, Volume I — Springer"
-                    >
+                    View my research
+
+                    <span>→</span>
 
                 </a>
 
 
-                <span class="pub-label">
-                    PUBLICATION
-                </span>
+                <a
+                    href="#contact"
+                    class="button secondary"
+                >
+
+                    Get in touch
+
+                    <span>→</span>
+
+                </a>
+
 
             </div>
 
-
-
-            <!-- PUBLICATION INFORMATION -->
-
-            <div class="pub-info reveal">
-
-                <div class="eyebrow">
-                    03 / PUBLICATION
-                </div>
-
-
-                <h2 class="pub-title">
-
-                    Enhancement of Heat Sink
-                    Performance in Compact
-                    Electronic Devices Through
-                    Geometry Modification
-
-                </h2>
-
-
-                <p class="pub-authors">
-
-                    <strong>Authors</strong><br>
-
-                    S. Aswin ·
-                    S. Amegh ·
-                    S. Nair Alok ·
-                    A. K. Yadhukrishnan ·
-                    S. R. Suresh Lal
-
-                </p>
-
-
-
-                <div class="pub-details">
-
-
-                    <div class="pub-detail">
-
-                        <div class="pub-detail-title">
-                            Publication
-                        </div>
-
-                        <div class="pub-detail-value">
-
-                            Lecture Notes in Mechanical Engineering
-
-                            <br>
-
-                            Advances in Aerospace and Energy,
-                            Volume I
-
-                            <br>
-
-                            Pages 527–542
-
-                            <br>
-
-                            2026
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="pub-detail">
-
-                        <div class="pub-detail-title">
-                            DOI
-                        </div>
-
-                        <div class="pub-detail-value">
-
-                            10.1007/978-981-96-8777-0_38
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="pub-detail">
-
-                        <div class="pub-detail-title">
-                            Research
-                        </div>
-
-                        <div class="pub-detail-value">
-
-                            Heat-sink geometry modification,
-                            CFD analysis, experimental evaluation,
-                            AlSi10Mg and additive manufacturing.
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="pub-buttons">
-
-
-                    <a
-                        class="button primary"
-                        href="https://doi.org/10.1007/978-981-96-8777-0_38"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-
-                        View DOI →
-
-                    </a>
-
-
-                    <a
-                        class="button secondary"
-                        href="https://link.springer.com/book/10.1007/978-981-96-8777-0"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-
-                        Springer →
-
-                    </a>
-
-
-                    <a
-                        class="button secondary"
-                        href="https://orcid.org/0009-0000-6797-1141"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-
-                        ORCID →
-
-                    </a>
-
-                </div>
-
-            </div>
 
         </div>
+
+
+
+        <!-- =================================================
+             YOUR LOCAL PORTRAIT ONLY
+        ================================================== -->
+
+        <div class="hero-image">
+
+            <img
+                src="assets/portrait-lineart.png"
+                alt="Aswin S. line art portrait"
+            >
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         INFORMATION STRIP
+    ================================================== -->
+
+    <div class="info-strip">
+
+
+        <div class="info-item">
+
+            <span class="info-label">
+                CURRENTLY
+            </span>
+
+            <strong>
+                M.Tech · IIT Madras
+            </strong>
+
+        </div>
+
+
+        <div class="info-item">
+
+            <span class="info-label">
+                FOCUS
+            </span>
+
+            <strong>
+                Heat Transfer & Multiphase Flow
+            </strong>
+
+        </div>
+
+
+        <div class="info-item">
+
+            <span class="info-label">
+                EXPLORING
+            </span>
+
+            <strong>
+                Scientific Machine Learning
+            </strong>
+
+        </div>
+
+
+        <div class="info-item">
+
+            <span class="info-label">
+                LOCATION
+            </span>
+
+            <strong>
+                Chennai, India
+            </strong>
+
+        </div>
+
 
     </div>
 
@@ -1602,112 +1534,324 @@ footer {
 
 
 
-<!-- ======================================================
-     WORK
-======================================================= -->
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
-<section id="work" class="section section-line">
+<section
+    class="editorial-section"
+    id="about"
+>
 
-    <div class="container">
 
-        <div class="eyebrow">
-            04 / SELECTED WORK
+    <div class="section-number">
+
+        <span>01</span>
+
+        ABOUT
+
+    </div>
+
+
+    <div class="section-title">
+
+        The questions<br>
+        I keep coming back to.
+
+    </div>
+
+
+    <div class="section-text">
+
+        I am interested in how heat moves, how flows become
+        unstable, and what happens when thermal systems are
+        pushed beyond their familiar limits.
+
+        <br><br>
+
+        My approach combines physical understanding,
+        computational analysis and experimental investigation.
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     RESEARCH
+===================================================== -->
+
+<section
+    class="editorial-section"
+    id="research"
+>
+
+
+    <div class="section-number">
+
+        <span>02</span>
+
+        RESEARCH
+
+    </div>
+
+
+    <div class="section-title">
+
+        From physical models<br>
+        to prediction.
+
+    </div>
+
+
+    <div class="section-text">
+
+        My research interests connect heat transfer,
+        multiphase flow, computational fluid dynamics
+        and scientific machine learning.
+
+        <br><br>
+
+        I am particularly interested in
+        <a href="#projects">
+            microchannel flow boiling
+        </a>,
+        CFD-based thermal analysis and physics-informed
+        approaches for engineering prediction when
+        experimental data is limited.
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     RESEARCH PATH
+===================================================== -->
+
+<div class="research-path">
+
+    <div class="research-line">
+
+
+        <div class="research-step">
+
+            <small>01</small>
+
+            <strong>Physics</strong>
+
         </div>
 
 
-        <div class="work-grid">
+        <div class="research-step">
 
+            <small>02</small>
 
-            <!-- BTECH PROJECT -->
-
-            <article class="work-card reveal">
-
-                <div class="work-number">
-                    01 / HEAT TRANSFER
-                </div>
-
-
-                <h3 class="work-title">
-
-                    Optimization of Heat Sink
-                    Design Through Thermal Analysis
-                    and Experimental Evaluation
-
-                </h3>
-
-
-                <p class="work-description">
-
-                    Numerical and experimental investigation of
-                    conventional and modified heat-sink geometries,
-                    including corrugated airfoil configurations,
-                    CFD analysis and additive manufacturing.
-
-                </p>
-
-
-                <div class="work-tags">
-
-                    <span class="tag">ANSYS Fluent</span>
-
-                    <span class="tag">CFD</span>
-
-                    <span class="tag">Heat Transfer</span>
-
-                    <span class="tag">SOLIDWORKS</span>
-
-                    <span class="tag">LPBF</span>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- CURRENT PROJECT -->
-
-            <article class="work-card reveal">
-
-                <div class="work-number">
-                    02 / CURRENT RESEARCH
-                </div>
-
-
-                <h3 class="work-title">
-
-                    Microchannel Flow Boiling:
-                    Experiments & Simulation
-
-                </h3>
-
-
-                <p class="work-description">
-
-                    Experimental and computational investigation of
-                    two-phase flow boiling in microchannels, with
-                    emphasis on heat-transfer behaviour, pressure
-                    drop and predictive modelling.
-
-                </p>
-
-
-                <div class="work-tags">
-
-                    <span class="tag">Flow Boiling</span>
-
-                    <span class="tag">Microchannels</span>
-
-                    <span class="tag">Two-Phase Flow</span>
-
-                    <span class="tag">Heat Transfer</span>
-
-                    <span class="tag">Simulation</span>
-
-                </div>
-
-            </article>
+            <strong>Experiments</strong>
 
         </div>
+
+
+        <div class="research-step">
+
+            <small>03</small>
+
+            <strong>Probability</strong>
+
+        </div>
+
+
+        <div class="research-step">
+
+            <small>04</small>
+
+            <strong>Machine Learning</strong>
+
+        </div>
+
+
+        <div class="research-step">
+
+            <small>05</small>
+
+            <strong>Physics-Informed ML</strong>
+
+        </div>
+
+
+        <div class="research-step">
+
+            <small>06</small>
+
+            <strong>Prediction</strong>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section
+    class="projects-section"
+    id="projects"
+>
+
+
+    <div class="projects-heading">
+
+
+        <div class="section-number">
+
+            <span>03</span>
+
+            PROJECTS
+
+        </div>
+
+
+        <h2>
+            Selected work.
+        </h2>
+
+
+        <p>
+
+            Projects that reflect my interests in heat transfer,
+            fluid mechanics, CFD, experimentation and thermal
+            system design.
+
+        </p>
+
+
+    </div>
+
+
+
+    <div class="project-grid">
+
+
+        <!-- PROJECT 1 -->
+
+        <a
+            href="#publication"
+            class="project-card"
+        >
+
+            <div class="project-image">
+
+                <div class="project-placeholder">
+                    HEAT
+                </div>
+
+            </div>
+
+
+            <div class="project-number">
+                01
+            </div>
+
+
+            <h3>
+                Heat Sink Optimization
+            </h3>
+
+
+            <p>
+
+                Thermal analysis and experimental evaluation
+                of modified corrugated airfoil heat-sink
+                geometries.
+
+            </p>
+
+        </a>
+
+
+
+        <!-- PROJECT 2 -->
+
+        <a
+            href="#research"
+            class="project-card"
+        >
+
+            <div class="project-image">
+
+                <div class="project-placeholder">
+                    CFD
+                </div>
+
+            </div>
+
+
+            <div class="project-number">
+                02
+            </div>
+
+
+            <h3>
+                Computational Fluid Dynamics
+            </h3>
+
+
+            <p>
+
+                Numerical modelling of heat transfer,
+                flow behaviour and thermal-fluid systems
+                using CFD.
+
+            </p>
+
+        </a>
+
+
+
+        <!-- PROJECT 3 -->
+
+        <a
+            href="#research"
+            class="project-card"
+        >
+
+            <div class="project-image">
+
+                <div class="project-placeholder">
+                    FLOW
+                </div>
+
+            </div>
+
+
+            <div class="project-number">
+                03
+            </div>
+
+
+            <h3>
+                Microchannel Flow Boiling
+            </h3>
+
+
+            <p>
+
+                Experimental and computational investigation
+                of flow boiling in microchannels.
+
+            </p>
+
+        </a>
+
 
     </div>
 
@@ -1715,244 +1859,279 @@ footer {
 
 
 
-<!-- ======================================================
-     SKILLS
-======================================================= -->
+<!-- =====================================================
+     PUBLICATION
+===================================================== -->
 
-<section id="skills" class="section">
-
-    <div class="container">
-
-        <div class="eyebrow">
-            05 / SKILLS
-        </div>
+<section
+    class="publication-section"
+    id="publication"
+>
 
 
-        <div class="skills-grid reveal">
+    <div class="section-number">
 
+        <span>04</span>
 
-            <div class="skill">
-                <span>Thermal Engineering</span>
-            </div>
-
-
-            <div class="skill">
-                <span>Heat Transfer</span>
-            </div>
-
-
-            <div class="skill">
-                <span>Computational Fluid Dynamics</span>
-            </div>
-
-
-            <div class="skill">
-                <span>ANSYS Fluent</span>
-            </div>
-
-
-            <div class="skill">
-                <span>SOLIDWORKS</span>
-            </div>
-
-
-            <div class="skill">
-                <span>Python</span>
-            </div>
-
-
-            <div class="skill">
-                <span>Numerical Methods</span>
-            </div>
-
-
-            <div class="skill">
-                <span>Machine Learning</span>
-            </div>
-
-
-            <div class="skill">
-                <span>Probability</span>
-            </div>
-
-
-            <div class="skill">
-                <span>Physics-Informed ML</span>
-            </div>
-
-
-            <div class="skill">
-                <span>Two-Phase Flow</span>
-            </div>
-
-
-            <div class="skill">
-                <span>Experimental Methods</span>
-            </div>
-
-        </div>
+        PUBLICATION
 
     </div>
 
-</section>
 
 
+    <!-- =================================================
+         SPRINGER COVER
 
-<!-- ======================================================
-     NOTES
-======================================================= -->
+         NO LOCAL IMAGE REQUIRED.
 
-<section class="section section-line">
+         This image is loaded directly from Springer.
+    ================================================== -->
 
-    <div class="container">
+    <a
+        class="publication-cover"
+        href="https://link.springer.com/book/10.1007/978-981-96-8777-0"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
 
-        <div class="eyebrow">
-            06 / QUESTIONS I AM EXPLORING
-        </div>
-
-
-        <div class="notes-grid">
-
-
-            <div class="note reveal">
-
-                <div class="note-number">
-                    01
-                </div>
-
-                <h3>
-                    Can limited experimental
-                    data reveal the heat-transfer
-                    coefficient?
-                </h3>
-
-                <p>
-                    Exploring inverse approaches,
-                    correlations and physics-informed
-                    prediction.
-                </p>
-
-            </div>
+        <img
+            src="https://media.springernature.com/full/springer-static/image/art%3A10.1007%2F978-981-96-8777-0/MediaObjects/978-981-96-8777-0_Cover.jpg"
+            alt="Advances in Aerospace and Energy, Volume I — Springer"
+            loading="lazy"
+        >
 
 
+        <div class="publication-overlay">
 
-            <div class="note reveal">
-
-                <div class="note-number">
-                    02
-                </div>
-
-                <h3>
-                    How can probability
-                    quantify uncertainty in
-                    thermal experiments?
-                </h3>
-
-                <p>
-                    Understanding uncertainty,
-                    distributions and probabilistic
-                    engineering models.
-                </p>
-
-            </div>
-
-
-
-            <div class="note reveal">
-
-                <div class="note-number">
-                    03
-                </div>
-
-                <h3>
-                    Can physics-informed
-                    learning improve thermal
-                    system prediction?
-                </h3>
-
-                <p>
-                    Combining governing equations,
-                    experimental data and machine
-                    learning.
-                </p>
-
-            </div>
+            SPRINGER ↗
 
         </div>
 
-    </div>
 
-</section>
-
+    </a>
 
 
-<!-- ======================================================
-     CONTACT
-======================================================= -->
 
-<section id="contact" class="section contact section-line">
+    <!-- =================================================
+         PUBLICATION INFORMATION
+    ================================================== -->
 
-    <div class="container">
+    <div class="publication-info">
 
-        <div class="eyebrow">
-            07 / CONTACT
+
+        <div class="publication-label">
+
+            2026 · LECTURE NOTES IN MECHANICAL ENGINEERING
+
         </div>
 
 
-        <h2 class="contact-title reveal">
+        <h2>
 
-            Let's talk about
-
-            <br>
-
-            <span class="blue">heat & flow.</span>
+            Enhancement of Heat Sink Performance in
+            Compact Electronic Devices Through
+            Geometry Modification
 
         </h2>
 
 
-        <div class="contact-links">
+        <div class="publication-meta">
 
 
-            <!-- EMAIL -->
+            <strong>
+                Authors
+            </strong>
 
-            <!--
-                IMPORTANT:
-                Replace YOUR_EMAIL_HERE with your actual email.
-            -->
+            <br>
+
+            S. Aswin · S. Amegh · S. Nair Alok ·
+            A. K. Yadhukrishnan · S. R. Suresh Lal
+
+
+            <br><br>
+
+
+            <strong>
+                Publication
+            </strong>
+
+            <br>
+
+            Lecture Notes in Mechanical Engineering
+
+            <br>
+
+            Advances in Aerospace and Energy, Volume I
+
+            <br>
+
+            Pages 527–542
+
+            <br>
+
+            2026
+
+
+            <br><br>
+
+
+            <strong>
+                DOI
+            </strong>
+
+            <br>
+
+            10.1007/978-981-96-8777-0_38
+
+
+        </div>
+
+
+        <p class="publication-description">
+
+            An experimental and numerical investigation of
+            heat-sink geometry modification, comparing a
+            corrugated airfoil configuration with a conventional
+            pin-fin design. The work combines CFD, experimental
+            thermal analysis, AlSi10Mg and additive manufacturing
+            considerations for compact thermal management.
+
+        </p>
+
+
+
+        <div class="publication-actions">
+
 
             <a
-                class="contact-link"
-                href="mailto:YOUR_EMAIL_HERE"
+                class="pub-button blue"
+                href="https://doi.org/10.1007/978-981-96-8777-0_38"
+                target="_blank"
+                rel="noopener noreferrer"
             >
 
-                <span>
-                    Email
-                </span>
+                View DOI →
 
-                <strong>
-                    YOUR_EMAIL_HERE
-                </strong>
+            </a>
+
+
+            <a
+                class="pub-button"
+                href="https://orcid.org/0009-0000-6797-1141"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                ORCID ↗
+
+            </a>
+
+
+            <a
+                class="pub-button"
+                href="https://link.springer.com/book/10.1007/978-981-96-8777-0"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                Springer ↗
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     EXTERNAL LINKS
+===================================================== -->
+
+<section class="external-links">
+
+
+    <div class="section-number">
+
+        <span>05</span>
+
+        LINKS
+
+    </div>
+
+
+    <div class="external-content">
+
+
+        <h2>
+
+            Find my work<br>
+            elsewhere.
+
+        </h2>
+
+
+        <div class="link-grid">
+
+
+            <!-- ORCID -->
+
+            <a
+                class="link-card"
+                href="https://orcid.org/0009-0000-6797-1141"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <div>
+
+                    <small>
+                        RESEARCH ID
+                    </small>
+
+                    <strong>
+                        ORCID
+                    </strong>
+
+                </div>
+
+                <span>
+                    ↗
+                </span>
 
             </a>
 
 
 
-            <!-- LINKEDIN -->
+            <!-- PUBLICATION -->
 
             <a
-                class="contact-link"
-                href="YOUR_LINKEDIN_URL"
+                class="link-card"
+                href="https://doi.org/10.1007/978-981-96-8777-0_38"
                 target="_blank"
                 rel="noopener noreferrer"
             >
 
-                <span>
-                    LinkedIn
-                </span>
+                <div>
 
-                <strong>
-                    Connect on LinkedIn →
-                </strong>
+                    <small>
+                        PUBLICATION
+                    </small>
+
+                    <strong>
+                        Springer · DOI
+                    </strong>
+
+                </div>
+
+                <span>
+                    ↗
+                </span>
 
             </a>
 
@@ -1961,117 +2140,286 @@ footer {
             <!-- GITHUB -->
 
             <a
-                class="contact-link"
+                class="link-card"
                 href="https://github.com/aswins-orbit"
                 target="_blank"
                 rel="noopener noreferrer"
             >
 
-                <span>
-                    GitHub
-                </span>
+                <div>
 
-                <strong>
-                    aswins-orbit →
-                </strong>
+                    <small>
+                        CODE & PROJECTS
+                    </small>
+
+                    <strong>
+                        GitHub
+                    </strong>
+
+                </div>
+
+                <span>
+                    ↗
+                </span>
 
             </a>
 
+
+
+            <!-- LINKEDIN -->
+
+            <a
+                class="link-card"
+                href="https://www.linkedin.com/in/aswin-s-15b21b201/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <div>
+
+                    <small>
+                        PROFESSIONAL
+                    </small>
+
+                    <strong>
+                        LinkedIn
+                    </strong>
+
+                </div>
+
+                <span>
+                    ↗
+                </span>
+
+            </a>
+
+
         </div>
+
 
     </div>
 
+
 </section>
 
+
+
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+
+<section
+    class="skills-section"
+    id="skills"
+>
+
+
+    <div class="section-number">
+
+        <span>06</span>
+
+        SKILLS
+
+    </div>
+
+
+    <div class="skills-content">
+
+
+        <h2>
+
+            Tools I use<br>
+            to understand systems.
+
+        </h2>
+
+
+        <div class="skills-grid">
+
+
+            <div class="skill">
+                ANSYS Fluent
+            </div>
+
+            <div class="skill">
+                CFD
+            </div>
+
+            <div class="skill">
+                Heat Transfer
+            </div>
+
+            <div class="skill">
+                SOLIDWORKS
+            </div>
+
+            <div class="skill">
+                Python
+            </div>
+
+            <div class="skill">
+                C / C++
+            </div>
+
+            <div class="skill">
+                Numerical Methods
+            </div>
+
+            <div class="skill">
+                Multiphase Flow
+            </div>
+
+            <div class="skill">
+                Machine Learning
+            </div>
+
+            <div class="skill">
+                Scientific ML
+            </div>
+
+            <div class="skill">
+                Physics-Informed ML
+            </div>
+
+            <div class="skill">
+                Thermal Analysis
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section
+    class="contact-section"
+    id="contact"
+>
+
+
+    <div class="section-number">
+
+        <span>07</span>
+
+        CONTACT
+
+    </div>
+
+
+    <div class="contact-content">
+
+
+        <h2>
+
+            Let's talk<br>
+            thermal systems.
+
+        </h2>
+
+
+        <p>
+
+            I am open to conversations around thermal engineering,
+            heat transfer, CFD, multiphase flow, scientific machine
+            learning, research collaborations and engineering
+            opportunities.
+
+        </p>
+
+
+        <!-- =================================================
+             REPLACE BOTH EMAIL PLACEHOLDERS WITH YOUR EMAIL
+        ================================================== -->
+
+        <a
+            class="contact-email"
+            href="mailto:YOUR_EMAIL@gmail.com"
+        >
+
+            YOUR_EMAIL@gmail.com
+
+        </a>
+
+
+        <div class="contact-socials">
+
+
+            <a
+                href="https://www.linkedin.com/in/aswin-s-15b21b201/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                LinkedIn ↗
+            </a>
+
+
+            <a
+                href="https://github.com/aswins-orbit"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub ↗
+            </a>
+
+
+            <a
+                href="https://orcid.org/0009-0000-6797-1141"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                ORCID ↗
+            </a>
+
+
+            <a
+                href="https://doi.org/10.1007/978-981-96-8777-0_38"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Publication ↗
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
 
 
 </main>
 
 
 
-<!-- ======================================================
+<!-- =====================================================
      FOOTER
-======================================================= -->
+===================================================== -->
 
 <footer>
 
-    <div>
+    <span>
         © 2026 Aswin S.
-    </div>
+    </span>
 
-    <div>
+
+    <span>
         Thermal Engineering · Research · Computation
-    </div>
+    </span>
 
 </footer>
 
 
-
-<!-- ======================================================
-     JAVASCRIPT
-======================================================= -->
-
-<script>
-
-const observer = new IntersectionObserver(
-    (entries) => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("visible");
-
-            }
-
-        });
-
-    },
-    {
-        threshold: 0.12
-    }
-);
-
-
-document
-    .querySelectorAll(".reveal")
-    .forEach(element => {
-
-        observer.observe(element);
-
-    });
-
-
-/* ======================================================
-   CLOSE MOBILE / SMOOTH NAVIGATION
-======================================================= */
-
-document
-    .querySelectorAll('a[href^="#"]')
-    .forEach(link => {
-
-        link.addEventListener("click", function(e) {
-
-            const target = document.querySelector(
-                this.getAttribute("href")
-            );
-
-            if (target) {
-
-                e.preventDefault();
-
-                target.scrollIntoView({
-                    behavior: "smooth"
-                });
-
-            }
-
-        });
-
-    });
-
-</script>
-
-
 </body>
+
 </html>
